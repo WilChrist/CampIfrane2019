@@ -49,7 +49,12 @@ CREATE TABLE `evaluation` (
   `comission` varchar(255) DEFAULT NULL,
   `email` varchar(255) DEFAULT NULL,
   `telephone` int(11) DEFAULT NULL,
-  `plateforme` int(11) NOT NULL
+  `plateforme` int(11) NOT NULL,
+  `commentaire_organisation` text,
+  `commentaire_nourriture` text,
+  `commentaire_enseignement` text,
+  `commentaire_atelier` text,
+  `commentaire_application` text
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -61,9 +66,12 @@ CREATE TABLE `evaluation` (
 CREATE TABLE `Participants` (
   `id` int(3) UNSIGNED NOT NULL,
   `noms_et_prenoms` varchar(250) NOT NULL,
+  `sexe` varchar(10) NOT NULL,
   `villes` varchar(100) DEFAULT NULL,
   `email` varchar(250) NOT NULL,
   `phone` int(11) NOT NULL,
+  `anniversiare` datetime,
+  `eglise` varchar(255),
   `nombre_de_participation` tinyint(4) NOT NULL,
   `date_inscription` datetime NOT NULL,
   `nationalite` varchar(100) NOT NULL,

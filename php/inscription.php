@@ -9,15 +9,19 @@ try {
 
 
 $nom = htmlspecialchars($_POST['name']);
+$sexe = htmlspecialchars($_POST['sexe']);
 $email = trim(htmlspecialchars($_POST['email']));
 $ville = htmlspecialchars($_POST['town']);
 $tel = htmlspecialchars((int) $_POST['phone']);
+$anniversaire = htmlspecialchars($_POST['anniversaire']);
+$eglise= htmlspecialchars( $_POST['eglise']);
 $nationalite=htmlspecialchars($_POST['nationality']);
 $nombredeparticipation = htmlspecialchars((int) $_POST['nombredeparticipation']);
 $dateinscription = date('Y-m-d H:i:s');
 
 // variable d'�rreurs
 $nom_err = NULL;
+$sexe_err = NULL;
 $ville_err = NULL;
 $email_err = NULL;
 $tel_err = NULL;
@@ -50,18 +54,22 @@ if (empty($nom)) {
     $nom_err1 = "Vous n'avez pas entré de nom";
     $nbre_err++;//echo '<script>alert("4")</script>';
 }
+if(empty($sexe)){
+    $sexe_err ="Vous n'avez pas entré votre sexe";
+    $nbre_err++;
+}
 if (empty($ville) or $ville=="0") {
-    $prenom_err1 = "Vous n'avez pas choisit de ville";
+    $ville_err = "Vous n'avez pas choisit de ville";
     $nbre_err++;//echo '<script>alert("5")</script>';
 }
 if (empty($nombredeparticipation) or ($nombredeparticipation<1 and $nombredeparticipation>7) ) {
-    $prenom_err1 = "Votre nombre de participation est bizarre!";
+    $nombre_err = "Votre nombre de participation est bizarre!";
     $nbre_err++; 
     //echo $nombredeparticipation;
     //echo '<script>alert("6")</script>';
 }
 if (empty($nationalite) or $nationalite=="0") {
-    $prenom_err1 = "Vous n'avez pas choisit de pays";
+    $nationalite_err = "Vous n'avez pas choisit de pays";
     $nbre_err++;//echo '<script>alert("7")</script>';
 }
 $query = $db->prepare('SELECT COUNT(*) AS nbr_mail FROM Participants WHERE phone =:phone');
@@ -89,19 +97,25 @@ if ($nbre_err == 0) {
         INSERT INTO 
         participants(
         noms_et_prenoms,
+        sexe,
         villes,
         email,
         phone,
+        anniversiare,
+        eglise,
         nombre_de_participation,
         date_inscription ,
         nationalite
         )
         VALUES
         (
-        :noetpre, 
+        :noetpre,
+        :sexe, 
         :ville, 
         :email, 
-        :phone, 
+        :phone,
+        :anniversaire,
+        :eglise, 
         :nbrdepart, 
         NOW(), 
         :nat
@@ -109,9 +123,12 @@ if ($nbre_err == 0) {
         ');
     $tab = array(
         'noetpre' => utf8_encode($nom),
+        'sexe'=>utf8_encode($sexe),
         'ville' => utf8_encode($ville),
         'email' => utf8_encode($email),
         'phone' => utf8_encode($tel),
+        'anniversaire'=>utf8_encode($anniversaire),
+        'eglise'=>utf8_encode($eglise),
         'nbrdepart' => utf8_encode($nombredeparticipation),
         'nat' => utf8_encode($nationalite),
         );
@@ -129,12 +146,13 @@ $chaine_err=$reussi;
     echo'<h1 class="alert alert-danger alert-dismissable"><b>Inscription interrompue</b></h1>';
     echo'<p class="alert alert-danger alert-dismissable">Une ou plusieurs erreurs se sont produites pendant l\'incription</p>';
     echo'<p class="alert alert-danger alert-dismissable">' . $nom_err . ' </p>';
+    echo'<p class="alert alert-danger alert-dismissable">' . $sexe_err . ' </p>';
     echo'<p class="alert alert-danger alert-dismissable">' . $ville_err . ' </p>';
     echo'<p class="alert alert-danger alert-dismissable">' . $email_err . ' </p>';
     echo'<p class="alert alert-danger alert-dismissable">' . $tel_err . ' </p>';
     echo'<p class="alert alert-danger alert-dismissable">' . $nationalite_err . ' </p>'; 
     //echo'<p>Cliquez <a href="./register.php">ici</a> pour recommencer</p>';
-    $chaine_err = $nbre_err . '&' . $nom_err . '&' . $ville_err . '&' . $email_err . '&' . $tel_err . '&' . $nationalite_err . '&' .$reussi;
+    $chaine_err = $nbre_err . '&' . $nom_err . '&' . $ville_err . '&' . $email_err . '&' . $tel_err . '&' . $nationalite_err . '&'. $sexe_err .'&'.$reussi;
    
 }
 //$chaine_err=str_replace(' ','_',$chaine_err);

@@ -31,6 +31,12 @@ $comission=htmlspecialchars($_POST['comission']);
 $email=trim(htmlspecialchars($_POST['email']));
 $numero=htmlspecialchars($_POST['numero']);
 
+$commentaire_organisation=htmlspecialchars($_POST['commentaire_organisation']);
+$commentaire_nourriture=htmlspecialchars($_POST['commentaire_nourriture']);
+$commentaire_enseignement=htmlspecialchars($_POST['commentaire_enseignement']);
+$commentaire_atelier=htmlspecialchars($_POST['commentaire_atelier']);
+$commentaire_application=htmlspecialchars($_POST['commentaire_application']);
+
 $nberr=0;
 $required_err=NULL;
 $comission_err=NULL;
@@ -71,10 +77,11 @@ if($nberr>0){
 }
 else{
 	$rq=$db->prepare("INSERT INTO evaluation VALUES(:sexe,:ville,:nbpart,:type,:theme,:timing,:repos,:louange,:priere,:nourriture,:ens,:atelier,:eng,
-		:aimepas,:prop,:proj,:org,:com,:email,:numero,:plateforme)");
+		:aimepas,:prop,:proj,:org,:com,:email,:numero,:plateforme,:commentaire_organisation,:commentaire_nourriture,:commentaire_enseignement,:commentaire_atelier,:commentaire_application)");
 
 	$data= array('sexe' =>utf8_encode($sexe),'ville'=>utf8_encode($ville),'nbpart'=>utf8_encode($nbpart),'type'=>utf8_encode($type),'theme'=>utf8_encode($theme),'timing'=>utf8_encode($timing),'repos'=>utf8_encode($repos),'louange'=>utf8_encode($louange),'priere'=>utf8_encode($priere),'nourriture'=>utf8_encode($nourriture),'ens'=>utf8_encode($enseignement),'atelier'=>utf8_encode($atelier),'eng'=>utf8_encode($engagement),'aimepas'=>utf8_encode($aimepas),'prop'=>utf8_encode($proposition),'proj'=>utf8_encode($projet),'org'=>utf8_encode($organisation)
-		,'com'=>utf8_encode($comission),'email'=>utf8_encode($email),'numero'=>utf8_encode($numero),'plateforme'=>$plateforme);
+		,'com'=>utf8_encode($comission),'email'=>utf8_encode($email),'numero'=>utf8_encode($numero),'plateforme'=>utf8_encode($plateforme),'commentaire_organisation'=>utf8_encode($commentaire_organisation),'commentaire_nourriture'=>utf8_encode($commentaire_nourriture),
+	'commentaire_enseignement'=>utf8_encode($commentaire_enseignement),'commentaire_atelier'=>utf8_encode($commentaire_atelier),'commentaire_application'=>utf8_encode($commentaire_application));
 
 	$rq->execute($data);
 	$chaine_err=$nberr.'&'."Merci pour votre contibution à l'amélioration des prochains camps";

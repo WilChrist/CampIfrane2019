@@ -22,7 +22,7 @@
             text-align: center;
         }
         .main{
-            margin:50px 15px;
+            margin:20px 15px;
         }
         .mainappcolor{
             background-color: #38282b;
@@ -211,7 +211,7 @@ th{
 }
 
 .evaluationform{
-    max-width: 800px;
+    max-width: 1000px;
     color: #fff;
     margin: 0 auto;
     padding: 10px 40px;

@@ -17,7 +17,7 @@
     <link href="css/style.css" rel="stylesheet">
     <script type="text/javascript" src="js/scripts.js"></script>
     <!-- Custom Fonts -->
-   <!-- <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css"> -->
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -92,6 +92,7 @@
                                    <option value="Fès">Fès</option>
                                    <option value="Meknes">Béni-Cassen</option>
                                    <option value="Meknes">Meknes</option>
+                                   <option value="sidi-kacem">sidi-kacem</option>
                                </optgroup>
                                <optgroup label="Zone Centre">
                                    <option value="Casablanca">Casablanca</option>
@@ -107,6 +108,11 @@
                                    <option value="Marrakech">Marrakech</option>
                                    <option value="Errachidia">Errachidia</option>
                                </optgroup>
+                               <optgroup label="Hors Maroc">
+                                    <option value="Algérie">Algérie</option>
+                                    <option value="Tunisie">Tunisie</option>
+                                    <option value="Autre">Autre</option>
+                                </optgroup>
                             </select>
                         </div>
                     </div>
@@ -139,6 +145,7 @@
                         <table class="table">
                             <tr>
                                 <th></th>
+                                <th>MEDIOCRE</th>
                                 <th>PASSABLE</th>
                                 <th>ASSEZ BIEN</th>
                                 <th>BIEN</th>
@@ -146,72 +153,91 @@
                             </tr>
                             <tr>
                                 <th>Choix des thèmes (Contenu du programme)</th>
-                                <td><input type="radio" name="theme" value="passable" required></td>
+                                <td><input type="radio" name="theme" value="mediocre" required></td>
+                                <td><input type="radio" name="theme" value="passable" ></td>
                                 <td><input type="radio" name="theme" value="assez bien"></td>
                                 <td><input type="radio" name="theme" value="bien"></td>
                                 <td><input type="radio" name="theme" value="tres bien"></td>
                             </tr>
                             <tr>
                                 <th>Respect du timing</th>
-                                <td><input type="radio" name="timing" value="passable" required></td>
+                                <td><input type="radio" name="timing" value="mediocre" required></td>
+                                <td><input type="radio" name="timing" value="passable"></td>
                                 <td><input type="radio" name="timing" value="assez bien"></td>
                                 <td><input type="radio" name="timing" value="bien"></td>
                                 <td><input type="radio" name="timing" value="tres bien"></td>
                             </tr>
                             <tr>
                                 <th>Les heures de repos</th>
-                                <td><input type="radio" name="repos" value="passable" required></td>
+                                <td><input type="radio" name="repos" value="mediocre" required></td>
+                                <td><input type="radio" name="repos" value="passable"></td>
                                 <td><input type="radio" name="repos" value="assez bien"></td>
                                 <td><input type="radio" name="repos" value="bien"></td>
                                 <td><input type="radio" name="repos" value="tres bien"></td>
                             </tr>
                             <tr>
                                 <th>Moments de louange et adoration</th>
-                                <td><input type="radio" name="louange" value="passable" required></td>
+                                <td><input type="radio" name="louange" value="mediocre" required></td>
+                                <td><input type="radio" name="louange" value="passable"></td>
                                 <td><input type="radio" name="louange" value="assez bien"></td>
                                 <td><input type="radio" name="louange" value="bien"></td>
                                 <td><input type="radio" name="louange" value="tres bien"></td>
                             </tr>
                             <tr>
                                 <th>Moments de prière </th>
-                                <td><input type="radio" name="priere" value="passable" required></td>
+                                <td><input type="radio" name="priere" value="mediocre" required></td>
+                                <td><input type="radio" name="priere" value="passable"></td>
                                 <td><input type="radio" name="priere" value="assez bien"></td>
                                 <td><input type="radio" name="priere" value="bien"></td>
                                 <td><input type="radio" name="priere" value="tres bien"></td>
                             </tr>
                         </table>
                     </div>
+                    <div class="cols-sm-10">
+                        <textarea cols="30" rows="5" placeholder="votre commentaire sur l'organisation..." name="commentaire_organisation" class="form-control"></textarea>
+                    </div>
                 </div>
 
                 <div class="form-group">
                     <label for="nourriture" class="cols-sm-2 control-label">Comment avez-vous trouvé la nourriture lors de ce camp?*</label>
                     <div class="container-fluid">
-                        <div class="col-sm-12 col-xs-12 col-md-3"><input type="radio" name="nourriture" value="passable" required class="cols-sm-10"> PASSABLE</div>
-                        <div class="col-sm-12 col-xs-12 col-md-3"><input type="radio" name="nourriture" value="assez bien" class="cols-sm-10"> ASSEZ BIEN</div>
-                        <div class="col-sm-12 col-xs-12 col-md-3"><input type="radio" name="nourriture" value="bien" class="cols-sm-10"> BIEN</div>
-                        <div class="col-sm-12 col-xs-12 col-md-3"><input type="radio" name="nourriture" value="tres bien" class="cols-sm-10"> TRES BIEN</div>
+                        <div class="col-sm-12 col-xs-12 col-md-2"><input type="radio" name="nourriture" value="mediocre" required class="cols-sm-10"> MEDIOCRE</div>
+                        <div class="col-sm-12 col-xs-12 col-md-2"><input type="radio" name="nourriture" value="passable" required class="cols-sm-10"> PASSABLE</div>
+                        <div class="col-sm-12 col-xs-12 col-md-2"><input type="radio" name="nourriture" value="assez bien" class="cols-sm-10"> ASSEZ BIEN</div>
+                        <div class="col-sm-12 col-xs-12 col-md-2"><input type="radio" name="nourriture" value="bien" class="cols-sm-10"> BIEN</div>
+                        <div class="col-sm-12 col-xs-12 col-md-2"><input type="radio" name="nourriture" value="tres bien" class="cols-sm-10"> TRES BIEN</div>
+                    </div>
+                    <div class="cols-sm-10">
+                        <textarea cols="30" rows="5" placeholder="votre commentaire sur la nourriture..." name="commentaire_nourriture" class="form-control"></textarea>
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="enseignement" class="cols-sm-2 control-label">Comment avez-vous trouvé les enseignements lors du camp?*</label>
                     <div class="container-fluid">
-                        <div class="col-sm-12 col-xs-12 col-md-3"><input type="radio" name="enseignement" value="passable" required > PASSABLE</div>
-                        <div class="col-sm-12 col-xs-12 col-md-3"><input type="radio" name="enseignement" value="assez bien" > ASSEZ BIEN</div>
-                        <div class="col-sm-12 col-xs-12 col-md-3"><input type="radio" name="enseignement" value="bien" > BIEN</div>
-                        <div class="col-sm-12 col-xs-12 col-md-3"><input type="radio" name="enseignement" value="tres bien" > TRES BIEN</div>
+                        <div class="col-sm-12 col-xs-12 col-md-2"><input type="radio" name="enseignement" value="mediocre" required class="cols-sm-10"> MEDIOCRE</div>
+                        <div class="col-sm-12 col-xs-12 col-md-2"><input type="radio" name="enseignement" value="passable" required > PASSABLE</div>
+                        <div class="col-sm-12 col-xs-12 col-md-2"><input type="radio" name="enseignement" value="assez bien" > ASSEZ BIEN</div>
+                        <div class="col-sm-12 col-xs-12 col-md-2"><input type="radio" name="enseignement" value="bien" > BIEN</div>
+                        <div class="col-sm-12 col-xs-12 col-md-2"><input type="radio" name="enseignement" value="tres bien" > TRES BIEN</div>
+                    </div>
+                    <div class="cols-sm-10">
+                        <textarea cols="30" rows="5" placeholder="votre commentaire sur les enseignements..." name="commentaire_enseignement" class="form-control"></textarea>
                     </div>
                 </div>
-
                 <div class="form-group">
                     <label for="atelier" class="cols-sm-2 control-label">Comment avez-vous trouvé les ateliers?* </label>
                     <div classs="container-fluid">
-                        <div class="col-sm-12 col-xs-12 col-md-3"><input type="radio" name="atelier" value="passable" required class="cols-sm-10"> PASSABLE</div>
-                        <div class="col-sm-12 col-xs-12 col-md-3"><input type="radio" name="atelier" value="assez bien" class="cols-sm-10"> ASSEZ BIEN</div>
-                        <div class="col-sm-12 col-xs-12 col-md-3"><input type="radio" name="atelier" value="bien" class="cols-sm-10"> BIEN</div>
-                        <div class="col-sm-12 col-xs-12 col-md-3"><input type="radio" name="atelier" value="tres bien" class="cols-sm-10"> TRES BIEN</div>
+                        <div class="col-sm-12 col-xs-12 col-md-2"><input type="radio" name="atelier" value="mediocre" required class="cols-sm-10"> MEDIOCRE</div>
+                        <div class="col-sm-12 col-xs-12 col-md-2"><input type="radio" name="atelier" value="passable" required class="cols-sm-10"> PASSABLE</div>
+                        <div class="col-sm-12 col-xs-12 col-md-2"><input type="radio" name="atelier" value="assez bien" class="cols-sm-10"> ASSEZ BIEN</div>
+                        <div class="col-sm-12 col-xs-12 col-md-2"><input type="radio" name="atelier" value="bien" class="cols-sm-10"> BIEN</div>
+                        <div class="col-sm-12 col-xs-12 col-md-2"><input type="radio" name="atelier" value="tres bien" class="cols-sm-10"> TRES BIEN</div>
+                    </div>
+                    <div class="cols-sm-10">
+                        <textarea cols="30" rows="5" placeholder="votre commentaire sur les ateliers..." name="commentaire_atelier" class="form-control"></textarea>
                     </div>
                 </div>
-
+                <br/>
                 <div class="form-group">
                     <label for="engagement" class="cols-sm-2 control-label">Avez-vous pris de nouveaux engagements avec le Seigneur? </label>
                     <div class="container-fluid">
@@ -288,6 +314,9 @@
                     <label for="atelier" class="cols-sm-2 cols-md-12 control-label">Votre appréciation de la plateforme (note entre 0 et 20)?* </label>
                     <div classs="container-fluid">
                         <div class="cols-sm-10"><input type="number" min="0" max="20" name="plateforme" class="form-control"> </div>
+                    </div>
+                    <div class="cols-sm-10">
+                        <textarea cols="30" rows="5" placeholder="votre commentaire sur la plateforme" name="commentaire_application" class="form-control"></textarea>
                     </div>
                 </div> 
 

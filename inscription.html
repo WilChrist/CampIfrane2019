@@ -18,8 +18,8 @@
     <script type="text/javascript" src="js/scripts.js"></script>
 
     <!-- Custom Fonts -->
-   <!-- <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css"> -->
+    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+   <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css"> -->
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -74,7 +74,7 @@
                 <div class="main-login main-center mainappcolor">
                     <form method="POST" action="php/inscription.php">
                         <div class="form-group">
-                            <label for="name" class="cols-sm-2 control-label">Noms et Prénoms</label>
+                            <label for="name" class="cols-sm-2 control-label">Noms et Prénoms*</label>
                             <div class="cols-sm-10">
                                 <div class="input-group">
                                     <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
@@ -83,7 +83,14 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="town" class="cols-sm-2 control-label">Ville</label>
+                                <label for="sexe" class="cols-sm-2 control-label">Vous êtes?*</label>
+                                <div class="container-fluid">
+                                    <div class="col-sm-12 col-xs-12 col-md-6"><input type="radio" name="sexe" value="homme" required> Homme</div>
+                                    <div class="col-sm-12 col-xs-12 col-md-6"><input type="radio" name="sexe" value="femme"> Femme</div>
+                                </div>
+                            </div>
+                        <div class="form-group">
+                            <label for="town" class="cols-sm-2 control-label">Ville*</label>
                             <div class="cols-sm-10">
                                 <div class="input-group">
                                     <span class="input-group-addon"><i class="fa fa-home fa" aria-hidden="true"></i></span>
@@ -97,6 +104,7 @@
                                            <option value="Fès">Fès</option>
                                            <option value="Meknes">Meknes</option>
                                            <option value="Meknes">Beni-Snassen</option>
+                                           <option value="sidi-kacem">sidi-kacem</option>
                                        </optgroup>
                                        <optgroup label="Zone Centre">
                                            <option value="Casablanca">Casablanca</option>
@@ -113,12 +121,17 @@
                                            <option value="Marrakech">Marrakech</option>
                                            <option value="Errachidia">Errachidia</option>
                                        </optgroup>
+                                       <optgroup label="Hors Maroc">
+                                            <option value="Algérie">Algérie</option>
+                                            <option value="Tunisie">Tunisie</option>
+                                            <option value="Autre">Autre</option>
+                                        </optgroup>
                                     </select>
                                 </div>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="email" class="cols-sm-2 control-label">Email</label>
+                            <label for="email" class="cols-sm-2 control-label">Email*</label>
                             <div class="cols-sm-10">
                                 <div class="input-group">
                                     <span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
@@ -128,7 +141,7 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="phone" class="cols-sm-2 control-label">Téléphone</label>
+                            <label for="phone" class="cols-sm-2 control-label">Téléphone*</label>
                             <div class="cols-sm-10">
                                 <div class="input-group">
                                     <span class="input-group-addon"><i class="fa fa-phone" aria-hidden="true"></i></span>
@@ -137,9 +150,26 @@
                                 </div>
                             </div>
                         </div>
-
                         <div class="form-group">
-                            <label for="nombredeparticipation" class="cols-sm-2 control-label">Vous participez au camp pour la ... fois ?</label>
+                            <label for="anniversaire" class="cols-sm-2 control-label">Date de naissance</label>
+                                <div class="cols-sm-10">
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><i class="fa fa-birthday-cake" aria-hidden="true"></i></span>
+                                        <input type="date" class="form-control" name="anniversaire" id="anniversaire" placeholder="Entrez votre date de naissance"/>
+                                    </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                                <label for="eglise" class="cols-sm-2 control-label">Eglise locale</label>
+                                    <div class="cols-sm-10">
+                                        <div class="input-group">
+                                            <span class="input-group-addon"><i class="fa fa-church" aria-hidden="true"></i></span>
+                                            <input type="text" class="form-control" name="eglise" id="eglise" placeholder="Entrez le nom de votre église locale"/>
+                                        </div>
+                                </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="nombredeparticipation" class="cols-sm-2 control-label">Vous participez au camp pour la ... fois ?*</label>
                             <div class="cols-sm-10">
                                 <div class="input-group">
                                     <span class="input-group-addon">
@@ -159,7 +189,7 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="nationality" class="cols-sm-2 control-label">Pays d'origine</label>
+                            <label for="nationality" class="cols-sm-2 control-label">Pays d'origine*</label>
                             <div class="cols-sm-10">
                                 <div class="input-group">
                                     <span class="input-group-addon">
@@ -432,6 +462,7 @@
         //variable pour messages d'érreur
         var nbr_err = 0;
         var nom_err = "";
+        var sexe_err = "";
         var ville_err = "";
         var pays_err = "";
         var email_err = "";
@@ -442,6 +473,7 @@
             var spath = decodeURIComponent(window.location.search).split("&"); // On sépare la chaine des paramètres en fonction du & et on stock les messages d'erreur dans les variables d'erreur
             nbr_err = 0;
             nom_err = " ";
+            sexe_err = " ";
             ville_err = " ";
             email_err = " ";
             tel_err = " ";
@@ -454,6 +486,7 @@
             email_err = spath[3];
             tel_err = spath[4];
             pays_err = spath[5];
+            sexe_err = spath[6];
             reussi = spath[1];
             //
             //alert( nbr_err);

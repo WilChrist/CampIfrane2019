@@ -27,8 +27,8 @@ try {
     <script type="text/javascript" src="../js/scripts.js"></script>
     <!-- Custom Fonts -->
     <link href="../font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+   <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+     HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
@@ -104,7 +104,7 @@ try {
                     </div>
                     <div class="col-md-12">
                         <div class="panel panel-default">
-                            <div class="panel-heading">Répartition des Participants selon le Sexe</div>
+                            <div class="panel-heading">Répartition des Participants selon la ville</div>
                             <div class="panel-body">
                                 <canvas id="byCity" width="1600" height="900"></canvas>
                             </div>
